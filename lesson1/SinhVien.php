@@ -19,7 +19,7 @@ $hung->address = "Tp. Vinh, Nghệ An";
 
 $long = new SinhVien();
 // gán gtri cho các thuộc tính
-$long->name = "Nguyễn Thanh Hưng";
+$long->name = "Nguyễn Thanh Long";
 $long->age = 40;
 $long->address = "Mê Linh, Vĩnh Phúc";
 
@@ -35,3 +35,10 @@ $arr = [$hung, $long, $minh];
 
 
 ?>
+<ul>
+    <?php foreach($arr as $item): ?>
+        <li>
+            <?= $item->name ?> - <?= $item->age ?> - <?= $item->address ?>
+        </li>
+    <?php endforeach ?>
+</ul>

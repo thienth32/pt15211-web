@@ -1,50 +1,20 @@
 <?php
+require_once './Product.php';
+require_once './User.php';
+require_once './Category.php';
 
+$productModel = new Product();
+$products = $productModel->all();
 
-class Animal{
+$userModel = new User();
+$users = $userModel->all();
 
-    function __construct($name, $color)
-    {
-        $this->name = $name;
-        $this->color = $color;
-    }
+$cateModel = new Category();
+$cates = $cateModel->all();
 
-    function getInfo(){
-        return "Em tên là: " . $this->name 
-            . " - Em có màu: " . $this->color;
-    }
-}
-// Khi 1 lớp B kế thừa lớp A, thì các thực thể thuộc lớp B 
-// được phép sử dụng các thuộc tính & phương thức
-// được tạo ra tại phạm vi của lớp A
+echo "<pre>";
 
-
-// Lớp Duck kế thừa từ lớp Animal
-class Duck extends Animal {
-    
-    function keu(){
-        return "Cạp cạp...";
-    }
-}
-
-class Dog extends Animal{
-
-}
-
-class PhuQuoc extends Dog{
-
-}
-
-$sau = new Duck("Vịt cỏ Vân Đình", "Xám");
-$rex = new PhuQuoc('Rex - chú chó thám tử', 'đen - vàng');
-echo $sau->getInfo();
-echo "<br>";
-echo $sau->keu();
-echo "<br>";
-
-echo $rex->getInfo();
-
-
+var_dump($cates);
 
 
 ?>

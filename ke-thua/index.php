@@ -4,13 +4,13 @@ require_once './User.php';
 require_once './Category.php';
 
 $productModel = new Product();
-$products = $productModel->all();
+// $products = $productModel->all();
 
-$userModel = new User();
-$users = $userModel->all();
+// $userModel = new User();
+// $users = $userModel->all();
 
 $cateModel = new Category();
-$cates = $cateModel->all();
+$cates = $productModel->findOne(93);
 
 echo "<pre>";
 

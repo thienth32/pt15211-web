@@ -6,15 +6,12 @@ require_once './Category.php';
 $productModel = new Product();
 $products = $productModel->all();
 
-// // $userModel = new User();
-// // $users = $userModel->all();
+// $userModel = new User();
+// $users = $userModel->all();
 
 // $cateModel = new Category();
 // $cates = $productModel->findOne(93);
 
-// echo "<pre>";
-
-var_dump($products);
 /*
 1. ở trang index.php lấy ra danh sách tất cả các sản phẩm có trong db
 hiển thị dạng table
@@ -31,9 +28,37 @@ tại trang xoa.php thực hiện xóa sản phẩm dựa vào id sau đó
 tại trang chi tiết lấy ra thông tin chi tiết của sản phẩm theo id
 
 tg làm bài: 12h30 -> 1h
-
-
 */
 
 
 ?>
+
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Cate_name</th>
+    <th>Price</th>
+    <th>
+        <a href="">Add</a>
+    </th>
+    </thead>
+    <tbody>
+        <?php foreach ($products as $pro): ?>
+            <tr>
+                <td><?= $pro->id ?></td>
+                <td><?= $pro->name ?></td>
+                <td>
+                    <img src="<?= $pro->image ?>" width="70">
+                </td>
+                <td><?= $pro->getCateName() ?></td>
+                <td><?= $pro->price ?></td>
+                <td>
+                    <a href="">Detail</a>
+                    <a href="">Remove</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>

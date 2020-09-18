@@ -15,6 +15,14 @@ class BaseModel{
 
     function remove($id){
         // delete from tên bảng where id = $id
+        // kiểm tra xem có tồn tại bản ghi hay không
+        $object = $this->findOne($id);
+        if(empty($object)){
+            return false;
+        }
+        $removeRecordQuery = "delete from " . $this->table . " where id = $id";
+        $this->executeQuery($removeRecordQuery);
+        return true;
     }
 
     function findOne($id){

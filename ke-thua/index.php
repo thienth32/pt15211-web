@@ -3,8 +3,8 @@ require_once './Product.php';
 require_once './User.php';
 require_once './Category.php';
 
-// $productModel = new Product();
-// // $products = $productModel->all();
+$productModel = new Product();
+$products = $productModel->all();
 
 // // $userModel = new User();
 // // $users = $userModel->all();
@@ -14,7 +14,7 @@ require_once './Category.php';
 
 // echo "<pre>";
 
-// var_dump($cates);
+var_dump($products);
 /*
 1. ở trang index.php lấy ra danh sách tất cả các sản phẩm có trong db
 hiển thị dạng table

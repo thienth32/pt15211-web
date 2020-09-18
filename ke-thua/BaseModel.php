@@ -3,6 +3,10 @@ class BaseModel{
 
     function __construct()
     {
+        
+    }
+
+    function getConnect(){
         $this->conn = new PDO("mysql:host=127.0.0.1;dbname=kaopiz;charset=utf8", 
                     "root", "123456");
     }
@@ -38,6 +42,7 @@ class BaseModel{
     }
 
     function executeQuery($query){
+        $this->getConnect();
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         // tham số trong fetchAll để ép dữ liệu trả về thành dạng object

@@ -56,7 +56,7 @@ tg làm bài: 12h30 -> 1h
                 <td><?= $pro->price ?></td>
                 <td>
                     <a href="">Detail</a>
-                    <a href="">Remove</a>
+                    <a href="xoa.php?id=<?= $pro->id ?>">Remove</a>
                 </td>
             </tr>
         <?php endforeach ?>

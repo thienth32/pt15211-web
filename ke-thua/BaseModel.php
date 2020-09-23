@@ -11,9 +11,10 @@ class BaseModel{
                     "root", "123456");
     }
 
-    function all(){
-        $getAllQuery = "select * from " . $this->table;
-        $data = $this->executeQuery($getAllQuery);
+    static function all(){
+        $model = new static();
+        $getAllQuery = "select * from " . $model->table;
+        $data = $model->executeQuery($getAllQuery);
         return $data;
     }
 

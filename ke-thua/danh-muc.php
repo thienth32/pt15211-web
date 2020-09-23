@@ -1,8 +1,7 @@
 <?php
 require_once './Category.php';
 
-$cateModel = new Category();
-$cates = $cateModel->all();
+$cates = Category::all();
 /*
     Hiển thị danh sách danh mục trong database
     id      Cate Name       Number Product

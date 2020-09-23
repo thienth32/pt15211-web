@@ -3,8 +3,7 @@ require_once './Product.php';
 require_once './User.php';
 require_once './Category.php';
 
-$productModel = new Product();
-$products = $productModel->all();
+$products = Product::all();
 
 // $userModel = new User();
 // $users = $userModel->all();

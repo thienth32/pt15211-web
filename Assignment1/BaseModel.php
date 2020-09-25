@@ -15,7 +15,7 @@ class BaseModel
 		$cols = " (";
 		$vals = " (";
 		foreach ($arr as $key => $value) {
-			$cols .= " $key,";
+			$cols .= " `$key`,";
 			$vals .= " :$key,";
 		}
 		$cols = rtrim($cols, ',');
@@ -33,7 +33,7 @@ class BaseModel
 		$this->queryBuilder = "update $this->tableName set ";
 		
 		foreach ($arr as $key => $value) {
-			$this->queryBuilder .= " $key = :$key,";
+			$this->queryBuilder .= " `$key` = :$key,";
 		}
 		$this->queryBuilder = rtrim($this->queryBuilder, ',');
 		$this->queryBuilder .= " where id = :id";
@@ -57,10 +57,23 @@ class BaseModel
 	public static function all(){
 		$model = new static();
 		$query = "select * from $model->tableName";
-		$stmt = $model->conn->prepare($query);
+		$stmt = $model->getConnect()->prepare($query);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
- 	}
+	}
+	public static function find($id){
+		$model = new static();
+		$query = "select * from $model->tableName where id = $id";
+		$stmt = $model->getConnect()->prepare($query);
+		$stmt->execute();
+		$data = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
+		if(count($data) > 0){
+			return $data[0];
+		}
+
+		return null;
+ 	} 
+
  	public static function where($arr){
  		$model = new static();
  		$model->queryBuilder = "select * from $model->tableName where $arr[0] $arr[1] '$arr[2]'";

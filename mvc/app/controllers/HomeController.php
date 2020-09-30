@@ -1,9 +1,12 @@
 <?php
 namespace App\Controllers;
+
+use App\Models\User;
+
 class HomeController{
 
     public function index(){
-        echo "Trang Homepage";
+        echo User::all();
     }
 }
 

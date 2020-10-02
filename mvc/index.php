@@ -2,6 +2,7 @@
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once './vendor/autoload.php';
+require_once './config/db.php';
 
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;

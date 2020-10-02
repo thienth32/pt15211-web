@@ -1,11 +1,8 @@
 <?php
 namespace App\Models;
-
-class Product{
-
-    public static function all(){
-        return "Tất cả sản phẩm";
-    }
+use Illuminate\Database\Eloquent\Model;
+class Product extends Model{
+    protected $table = "products";
 }
 
 ?>

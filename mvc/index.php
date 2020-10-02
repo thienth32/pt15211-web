@@ -1,12 +1,7 @@
 <?php
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
-require_once './app/controllers/HomeController.php';
-require_once './app/controllers/ProductController.php';
-require_once './app/models/User.php';
-require_once './app/models/Product.php';
-require_once './app/models/Category.php';
-
+require_once './vendor/autoload.php';
 
 use App\Controllers\HomeController;
 use App\Controllers\ProductController;

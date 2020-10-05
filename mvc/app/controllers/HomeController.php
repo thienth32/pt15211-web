@@ -4,16 +4,15 @@ namespace App\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 
-class HomeController{
+class HomeController extends BaseController{
 
     public function index(){
-        $pagesize = 20;
-        $pagenumber = 4;
-        $offset = ($pagenumber-1)*$pagesize;
-        echo "<pre>";
-        var_dump(
-            Product::take($pagesize)->skip($offset)->get()
-        );
+        $cates = Category::count();
+        $anchorTag = "<script>document.write('thienth poly')</script>";
+        $this->render('home.index', [
+            'totalCate' => $cates,
+            'anchorTag' => $anchorTag
+        ]);
     }
 }
 

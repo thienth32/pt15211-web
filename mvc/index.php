@@ -15,6 +15,8 @@ switch ($url) {
         break;
     case 'san-pham':
         # gọi đến hàm index của ProductController => Danh sách sản phẩm
+        # view products/index.blade.php
+        # hiển thị danh sách sản phẩm
         $ctr = new ProductController();
         $ctr->index();
         break;

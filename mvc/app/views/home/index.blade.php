@@ -1,9 +1,25 @@
-hello world!
-<br>
-{{$totalCate}}
+<h3>Danh sách danh mục</h3>
 
-@for($i = 0; $i < $totalCate; $i++)
-    <li>{{$i}}</li>
-@endfor
-
-{{ $anchorTag }}
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Cate Name</th>
+        <th>Total Product</th>
+        <th>
+            <a href="add-cate">Add new</a>
+        </th>
+    </thead>
+    <tbody>
+        @foreach ($cates as $item)
+            <tr>
+                <td>{{$item->id}}</td>
+                <td>{{$item->cate_name}}</td>
+                <td>{{count($item->products)}}</td>
+                <td>
+                    <a href="edit-cate?id={{$item->id}}">Edit</a>
+                    <a href="remove-cate?id={{$item->id}}">Remove</a>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>

@@ -8,7 +8,7 @@
     @include('layouts.style')
 </head>
 <body>
-    <div>
+    <div class="container">
         @include('layouts.nav')
         <main>
             @yield('content')

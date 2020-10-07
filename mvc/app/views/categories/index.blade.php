@@ -5,13 +5,13 @@
 
 <h3>Danh sách danh mục</h3>
 
-<table>
+<table class="table table-hover">
     <thead>
         <th>ID</th>
         <th>Cate Name</th>
         <th>Total Product</th>
         <th>
-            <a href="add-cate">Add new</a>
+            <a class="btn btn-sm btn-success" href="add-cate">Tạo mới</a>
         </th>
     </thead>
     <tbody>
@@ -21,8 +21,8 @@
                 <td>{{$item->cate_name}}</td>
                 <td>{{count($item->products)}}</td>
                 <td>
-                    <a href="edit-cate?id={{$item->id}}">Edit</a>
-                    <a href="remove-cate?id={{$item->id}}">Remove</a>
+                    <a class="btn btn-sm btn-info" href="{{BASE_URL . 'edit-cate?id=' . $item->id}}">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="{{BASE_URL . 'remove-cate?id=' . $item->id}}">Remove</a>
                 </td>
             </tr>
         @endforeach

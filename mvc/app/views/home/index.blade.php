@@ -1,3 +1,8 @@
+@extends('layouts.main')
+@section('title', 'Danh sách danh mục')
+
+@section('content')
+
 <h3>Danh sách danh mục</h3>
 
 <table>
@@ -23,3 +28,5 @@
         @endforeach
     </tbody>
 </table>
+
+@endsection

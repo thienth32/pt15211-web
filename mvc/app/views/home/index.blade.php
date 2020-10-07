@@ -1,32 +1,33 @@
 @extends('layouts.main')
-@section('title', 'Danh sách danh mục')
-
+@section('title', 'PT15211-web - Trang chủ')
 @section('content')
-
-<h3>Danh sách danh mục</h3>
-
-<table>
-    <thead>
-        <th>ID</th>
-        <th>Cate Name</th>
-        <th>Total Product</th>
-        <th>
-            <a href="add-cate">Add new</a>
-        </th>
-    </thead>
-    <tbody>
-        @foreach ($cates as $item)
-            <tr>
-                <td>{{$item->id}}</td>
-                <td>{{$item->cate_name}}</td>
-                <td>{{count($item->products)}}</td>
-                <td>
-                    <a href="edit-cate?id={{$item->id}}">Edit</a>
-                    <a href="remove-cate?id={{$item->id}}">Remove</a>
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
-
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{BASE_URL . 'public/images/users.png'}}" class="home-card-img card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Hiện có {{$users}} tài khoản</h5>
+                    <a href="{{BASE_URL . 'tai-khoan'}}" class="btn btn-primary">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{BASE_URL . 'public/images/categories.png'}}" class="home-card-img card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Hiện có {{$cates}} danh mục</h5>
+                    <a href="{{BASE_URL . 'danh-muc'}}" class="btn btn-primary">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{BASE_URL . 'public/images/products.png'}}" class="home-card-img card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Hiện có {{$products}} sản phẩm</h5>
+                    <a href="{{BASE_URL . 'sản phẩm'}}" class="btn btn-primary">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

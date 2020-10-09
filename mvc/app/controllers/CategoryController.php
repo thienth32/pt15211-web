@@ -21,7 +21,43 @@ class CategoryController extends BaseController{
         }
 
         header('location: ' . BASE_URL . 'danh-muc');
-        
+    }
+
+    public function addForm(){
+        $this->render('categories.add-form');
+    }
+
+    public function saveAddCate(){
+        $data = $_POST;
+        $model = new Category();
+        $model->fill($data);
+
+        $model->save();
+        header('location: ' . BASE_URL . 'danh-muc');
+    }
+
+    public function saveEditCate(){
+        $id = $_POST['id'];
+        // var_dump($_POST);die;
+        $model = Category::find($id);
+        if($model){
+            $model->fill($_POST);
+            $model->show_menu = isset($_POST['show_menu'])
+                                    ? $_POST['show_menu'] : null;
+            $model->save();
+        }
+        header('location: ' . BASE_URL . 'danh-muc');
+    }
+
+    public function editForm()
+    {
+        $id = $_GET['id'];
+        $model = Category::find($id);
+        if(!$model){
+            header('location: ' . BASE_URL . 'danh-muc');
+            die;
+        }
+        $this->render('categories.edit-form', compact('model'));
     }
 }
 

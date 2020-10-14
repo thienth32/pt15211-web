@@ -38,7 +38,6 @@ class CategoryController extends BaseController{
 
     public function saveEditCate(){
         $id = $_POST['id'];
-        // var_dump($_POST);die;
         $model = Category::find($id);
         if($model){
             $model->fill($_POST);

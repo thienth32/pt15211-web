@@ -25,7 +25,7 @@
                 <img src="{{BASE_URL . 'public/images/products.png'}}" class="home-card-img card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Hiện có {{$products}} sản phẩm</h5>
-                    <a href="{{BASE_URL . 'sản phẩm'}}" class="btn btn-primary">Chi tiết</a>
+                    <a href="{{BASE_URL . 'san-pham'}}" class="btn btn-primary">Chi tiết</a>
                 </div>
             </div>
         </div>

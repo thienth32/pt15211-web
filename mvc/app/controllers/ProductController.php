@@ -7,6 +7,10 @@ use App\Models\Product;
 class ProductController extends BaseController{
     public function index(){
         $products = Product::all();
+        $products->load([
+            'galleries',
+            'category'
+        ]);
         $this->render('products.index', compact('products'));
     }
 

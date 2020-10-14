@@ -4,12 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model{
     protected $table = "products";
 
-    public function getCateName(){
-        $cate = Category::find($this->cate_id);
-        if($cate){
-            return $cate->cate_name;
-        }
-        return null;
+    public function category(){
+        return $this->belongsTo(Category::class, 'cate_id');
+    }
+
+    public function galleries(){
+        return $this->hasMany(ProductGallery::class, 'product_id');
     }
 }
 

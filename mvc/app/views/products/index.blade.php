@@ -1,6 +1,17 @@
 @extends('layouts.main')
 @section('title', 'Danh sách sản phẩm')
 @section('content')
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <label for="">Tìm kiếm</label>
+            <input type="text" id="keyword" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <ul id="result"></ul>
+</div>
 <table class="table table-hover">
     <thead>
         <th>ID</th>
@@ -23,7 +34,7 @@
             <td>{{$item->name}}</td>
             <td>{{$item->category->cate_name}}</td>
             <td>
-                <img src="{{$item->image}}" width="70">
+                {{-- <img src="{{$item->image}}" width="70"> --}}
             </td>
             <td>
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#gallery-{{$item->id}}">
@@ -53,7 +64,7 @@
             <div class="row">
             @foreach ($pro->galleries as $img)
                 <div class="col-4">
-                    <img src="{{$img->img_url}}" class="img-thumbnail">
+                    {{-- <img src="{{$img->img_url}}" class="img-thumbnail"> --}}
                 </div>
             @endforeach
             </div>
@@ -65,5 +76,27 @@
       </div>
     </div>
   </div>
+<input type="hidden" id="search-product" value="{{BASE_URL . 'api/search-product'}}"/>
 @endforeach
+@endsection
+@section('js')
+    <script>
+        $('#keyword').keyup(function(){
+            let keyword = $(this).val();
+            $.ajax({
+                url: $('#search-product').val(),
+                method: "post",
+                data: {
+                    keyword: keyword
+                },
+                dataType: 'json',
+                success: function(response){
+                    $('#result').empty();
+                    response.forEach(function(item){
+                        $('#result').append(`<li>${item.id} - ${item.name}</li>`)
+                    });
+                }
+            })
+        })
+    </script>
 @endsection

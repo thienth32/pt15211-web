@@ -17,6 +17,13 @@ class ProductController extends BaseController{
     public function detail(){
         echo Category::all();
     }
+
+    public function searchProduct(){
+        $keyword = $_POST['keyword'];
+        $products = Product::where('name', 'like', "%$keyword%")->get();
+        echo json_encode($products);
+        die;
+    }
 }
 
 ?>

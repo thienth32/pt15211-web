@@ -52,7 +52,10 @@ switch ($url) {
         $ctr = new ProductController();
         $ctr->detail();
         break;
-    
+    case 'api/search-product':
+        $ctr = new ProductController();
+        $ctr->searchProduct();
+        break;
     default:
         # code...
         break;
